@@ -1,0 +1,19 @@
+{
+  "name": "javascript-macros",
+  "version": "0.0.1",
+  "keywords": [
+    "web-component"
+  ],
+  "main": "javascript-macros.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0"
+  },
+  "devDependencies": {
+    "web-component-tester": "^4.0.0"
+  }
+}
