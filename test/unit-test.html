@@ -21,6 +21,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <body>
 	<javascript-macros></javascript-macros>
 	<script>
+		suite("<javascript-macros>", function () {
+			suite("lazyIf", function () {
+				test("only evaluates alternative if condition returns false", function () {
+					var javascriptMacros = document.querySelector("javascript-macros");
+
+					expect(javascriptMacros.lazyIf(function() {
+						return true;
+					}, function() {
+						return true;
+					}, function() {
+						return 1 / 0;
+					})).to.equal(true);
+				});
+			});
+
+			suite("lazyWhen", function () {
+				test("alternative returns undefined", function () {
+					var javascriptMacros = document.querySelector("javascript-macros");
+
+					expect(javascriptMacros.lazyWhen(function () {
+						return false;
+					}, function () {
+						return true;
+					})).to.equal(undefined);
+				});
+			});
+		});
 	</script>
 </body>
 </html>

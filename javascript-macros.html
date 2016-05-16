@@ -9,6 +9,16 @@
 			properties: {
 			},
 			ready: function () {
+			},
+			lazyIf: function (condition, continuation, alternative) {
+				if (condition()) {
+					return continuation();
+				} else {
+					return alternative();
+				}
+			},
+			lazyWhen: function (condition, continuation) {
+				return this.lazyIf(condition, continuation, function () { });
 			}
 		});
 	</script>
