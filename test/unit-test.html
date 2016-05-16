@@ -47,6 +47,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 					})).to.equal(undefined);
 				});
 			});
+
+			suite("cond", function () {
+				test("resolves correct answer lazily", function () {
+					var javascriptMacros = document.querySelector("javascript-macros");
+
+					var answer = javascriptMacros.cond(
+						[function () { return false; }, function () { return 0; }],
+						[function () { return true; }, function () { return 1; }],
+						[function () { return 1 / 0; }, function () { return 1 / 0; }]
+					);
+
+					expect(answer).to.equal(1);
+				});
+			});
 		});
 	</script>
 </body>
